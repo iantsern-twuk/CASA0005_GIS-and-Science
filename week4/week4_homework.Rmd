@@ -1,0 +1,70 @@
+---
+title: "CASA0005_GIS and Science_week4_homework"
+auther: ChungEn
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+```{r}
+library(sf) #provides tools for managing and analyzing spatial data in R like geopandas
+library(tidyverse) #for streamlined data science workflows like pandas
+library(dplyr)
+library(readr) #reading and writing tabular data
+library(tmap) #visualizing spatial data
+library(countrycode) #mapping country
+
+```
+
+```{r}
+geodata <- st_read("/Users/tsernian/Documents/CASA/CASA0005_GIS and Science/week4/data/World_Countries_(Generalized)_9029012925078512962.geojson")
+geodata$iso3c <- countrycode(geodata$COUNTRY, "country.name", "iso3c")
+summary(geodata)
+print(names(geodata))
+plot(geodata)
+geodata
+```
+
+```{r}
+geosimple <- geodata %>%
+  st_simplify(dTolerance = 1000)
+ #st_geometry()%>% if use that other column will be remove
+
+plot(geosimple)
+print(names(geosimple))
+#read data and simplify the boundary 
+```
+
+```{r}
+gender_index <- read_csv("/Users/tsernian/Documents/CASA/CASA0005_GIS and Science/week4/data/HDR23-24_gender_inequality_index.csv")
+gender_index $iso3c <- countrycode(gender_index$Country, "country.name", "iso3c")
+print(gender_index)
+plot(gender_index)
+```
+
+```{r}
+geodata <- geodata %>%
+  left_join(gender_index, by = "iso3c")
+print(geodata)
+print(names(geodata))
+```
+
+```{r}
+tm_shape(geodata) +
+  tm_fill("Gender Inequality Index",
+          title="Gender Inequality Index",
+          title.position = "center",
+          style="jenks",
+          palette="Blues",
+          breaks=c(10000, 100000, 200000, 300000, 400000, 500000, 600000, 700000)) +
+  tm_borders() +
+  tm_layout(
+    legend.position = c(0.025, 0.1), #("left", "bottom"),
+    legend.title.size = 0.8,
+    legend.text.size = 0.6,
+    legend.bg.color = "white",
+    legend.bg.alpha = 0.5,
+  )
+```
+
+#gogo
