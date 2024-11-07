@@ -6,5 +6,5 @@ week4: https://raw.githack.com/iantsern-twuk/CASA0005_GIS-and-Science/refs/heads
 
 week5: https://raw.githack.com/iantsern-twuk/CASA0005_GIS-and-Science/refs/heads/master/week5%20/week5_homework.html
 
-## Ｒeach out
+## Reach out
 * [Chung-En Tsern](https://www.linkedin.com/in/iantsern/)
