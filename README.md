@@ -1,4 +1,4 @@
-# Geographic Information Systems and Science
+# Geographic Information Systems and Science 🌍
 
 ## Homework
 
