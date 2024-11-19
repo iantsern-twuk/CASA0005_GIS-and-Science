@@ -292,10 +292,7 @@ interactive_map <- tm_shape(BluePlaquesSubPoints_sf) +
   tm_fill(col = "dbcluster", alpha = 0.3, palette = "Set1")
 
 # Display the interactive map
-print(interactive_map)
-tmap_mode("plot")  # Switch back to static mode
+interactive_map
 
-# 5. Save the static map as a PNG file
-tmap_save(static_map, filename = "cluster_map.png")
 ```
 
