@@ -223,5 +223,3 @@ map<- leaflet(Joined) %>%
 # plot the map
 map
 ```
-
-git clone --mirror https://github.com/iantsern-twuk/repository.git CASA0005_GIS-and-Science-clean
