@@ -196,7 +196,7 @@ K <- BluePlaquesSub.ppp %>%
 ```{r}
 st_geometry(boroughmap)
 
-BluePlaquesSub <- BluePlaques[Harrow,]
+#BluePlaquesSub <- BluePlaques[Harrow,]
 BluePlaquesSubPoints <- BluePlaquesSub %>%
   st_coordinates() %>% 
   as.data.frame()
